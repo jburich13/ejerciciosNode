@@ -1,34 +1,33 @@
-function Usuario(nombre, apellido, libros = [], mascotas = []) {
-    this.nombre = nombre;
-    this.apellido = apellido
-    this.libros = libros;
-    this.mascotas = mascotas;
+class Usuario {
+    constructor(nombre, apellido, libros = [], mascotas = []) {
+        this.nombre = nombre;
+        this.apellido = apellido
+        this.libros = libros;
+        this.mascotas = mascotas;
+    }
 
-    this.getFullName = () => {
+    getFullName() {
         return `Hola, mi nombre es ${this.nombre} y mi apellido es ${this.apellido}`
     }
-    this.addMascotas = (mascota) => {
+    addMascotas(mascota) {
         this.mascotas.push(mascota);
     }
 
-    this.getMascotas = () => {
+    getMascotas() {
         return this.mascotas.length;
     }
 
-    this.addBook = (books) => {
+    addBook(books) {
         this.libros.push(books)
     }
 
-    this.getBooks = () => {
+    getBooks() {
         const soloNombres = libros.map(x => {
             return x.book
         })
         return soloNombres
     }
-
 }
-
-
 
 let libros = [],
     mascotas = []
