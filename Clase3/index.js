@@ -1,5 +1,5 @@
 async function imprimirPalabras(texto = "", tiempo = 1000) {
-    const promise = await new Promise((resolve, reject) => {
+    const promise = new Promise((resolve, reject) => {
         let i = 0;
         let texto2 = texto.split(" ")
         const intervalo = setInterval(() => {
@@ -7,12 +7,23 @@ async function imprimirPalabras(texto = "", tiempo = 1000) {
             i++
             if (texto2.length == i) {
                 clearInterval(intervalo)
+                resolve();
             }
         }, tiempo)
     })
     return promise
 }
 
-imprimirPalabras("Hola como estas")
-imprimirPalabras("Juan me llamo yo", 6000)
-imprimirPalabras("Haciendo el curso de coder", 18000)
+
+async function controlador(){
+    await imprimirPalabras("Hola como estas")
+    await imprimirPalabras("Q onda",2000)
+    await imprimirPalabras("Haciendo el curso de CoderHouse",2000)
+
+
+}
+
+
+controlador();
+
+
