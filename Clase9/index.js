@@ -28,12 +28,10 @@ let productos = [
         id:2
     }]
 
-const productoAGuardar = {
-    title:"Producto"+getRandom(0,100),
-    price:"Precio: $"+getRandom(0,1001),
-    thumbnail:"Img",
-    id:3
-}
+
+app.get("/",(req, res)=>{
+    res.sendFile(__dirname+"/index.html")
+})
 
 routerProductos.get("/listar",(req,res)=>{
     if(productos.length===0){
@@ -51,8 +49,10 @@ routerProductos.get("/listar/:id",(req,res)=>{
 
 })
 routerProductos.post("/guardar",(req,res)=>{
-    productos.push(productoAGuardar)
-    res.json(productoAGuardar)
+    const productoID = req.body
+    productoID.id = productos.length
+    productos.push(productoID)
+    res.json(productoID)
 })
 
 routerProductos.delete('/borrar/:id', (req, res) => {
