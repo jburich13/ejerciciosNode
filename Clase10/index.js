@@ -12,4 +12,4 @@ app.get("/",(req,res)=>{
     res.render("home",)
 })
 
-app.listen(port,()=>console.log("Escuchando puerto "+port))
+app.listen(port,()=>console.log("Escuchando puerto  "+port))
